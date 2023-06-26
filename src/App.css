@@ -1,42 +1,78 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.App {
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.ar-carousal {
+	width: 40vw;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.header {
+	text-align: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.carousel-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 20px;
+}
+.selected-image-container {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: center;
+}
+.selected-image {
+	width: 450px;
+	height: 655px;
+	margin-bottom: 8px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.carousel {
+	position: relative;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	width: 100%;
 }
 
-.card {
-  padding: 2em;
+.carousel__images {
+	display: flex;
+	max-width: 75%;
+	overflow-x: hidden;
 }
 
-.read-the-docs {
-  color: #888;
+.carousel__image-selected {
+	border: 3px solid #ffa700 !important;
+}
+
+.carousel__image {
+	margin-right: 10px;
+	height: 75px;
+	min-width: 50px;
+	border: 3px solid #ffa70000;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.carousel__button {
+	position: absolute;
+	top: 40%;
+}
+
+.carousel__button-left {
+	left: 10px;
+}
+
+.carousel__button-right {
+	right: 10px;
 }
