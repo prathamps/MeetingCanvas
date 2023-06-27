@@ -8,71 +8,20 @@
 }
 
 .ar-carousal {
+	position: relative;
+	left: 40rem;
+	top: -45rem;
 	width: 40vw;
+	z-index: 102;
 }
 .header {
 	text-align: center;
 }
 
-.carousel-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 20px;
-}
-.selected-image-container {
-	display: flex;
-	align-items: center;
-	width: 100%;
-	justify-content: center;
-}
-.selected-image {
-	width: 450px;
-	height: 655px;
-	margin-bottom: 8px;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	border-radius: 30px;
-}
-
-.carousel {
-	position: relative;
-	justify-content: center;
-	display: flex;
-	align-items: center;
-	width: 100%;
-}
-
-.carousel__images {
-	display: flex;
-	max-width: 75%;
-	overflow-x: hidden;
-}
-
-.carousel__image-selected {
-	border: 3px solid #ffa700 !important;
-}
-
-.carousel__image {
-	margin-right: 10px;
-	height: 75px;
-	min-width: 50px;
-	border: 3px solid #ffa70000;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-.carousel__button {
+.video-display {
 	position: absolute;
-	top: 40%;
-}
-
-.carousel__button-left {
-	left: 10px;
-}
-
-.carousel__button-right {
-	right: 10px;
+	left: 100px;
+	top: 500px;
+	margin: 1rem;
+	z-index: 100;
 }

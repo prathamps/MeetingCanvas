@@ -1,0 +1,79 @@
+.carousel-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 20px;
+}
+.selected-image-container {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: center;
+}
+.selected-image {
+	width: 380px;
+	height: 550px;
+	margin-bottom: 8px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 30px;
+	box-shadow: 10px 11px 12px 1px rgba(0, 0, 0, 0.25);
+}
+
+.carousel {
+	position: relative;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.carousel__images {
+	display: flex;
+	max-width: 45%;
+	overflow-x: hidden;
+}
+
+.carousel__image-selected {
+	border: 3px solid #dbdbdb !important;
+	min-width: 80px !important;
+	margin-left: 0.5rem !important;
+	margin-right: 1rem !important;
+}
+
+.carousel__image {
+	border-radius: 10px;
+	margin-right: 10px;
+	height: 75px;
+	min-width: 50px;
+	border: 3px solid #ffa70000;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	transition: all 200ms ease-in;
+
+	box-shadow: 5px 6px 12px 1px rgba(0, 0, 0, 0.25);
+}
+
+.carousel__button {
+	position: absolute;
+	top: 40%;
+}
+
+.carousel__button-left {
+	left: 10px;
+}
+
+.carousel__button-right {
+	right: 10px;
+}
+
+.photo_bar {
+	position: relative;
+	top: 10px;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	width: 100%;
+}

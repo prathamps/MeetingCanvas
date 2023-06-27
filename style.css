@@ -1,0 +1,23 @@
+body {
+	background-color: #000;
+}
+
+#canvas {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 100;
+}
+
+#video {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: -1;
+	border: 3px #fff solid;
+	border-radius: 10px;
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg); /* Safari and Chrome */
+	-moz-transform: rotateY(180deg); /* Firefox */
+	z-index: 100;
+}

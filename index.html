@@ -4,8 +4,40 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>MeetingCanvas</title>
+
+		<meta charset="utf-8" />
+		<script
+			src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"
+			crossorigin="anonymous"
+		></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+
+		<script
+			defer
+			language="javascript"
+			type="text/javascript"
+			src="detection.js"
+		></script>
+		<script
+			defer
+			language="javascript"
+			type="module"
+			type="text/javascript"
+			src="sketch.js"
+		></script>
+		<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
 	<body>
+		<video id="video" width="640" height="480"></video>
 		<div id="root"></div>
 		<script type="module" src="/src/main.tsx"></script>
 	</body>
