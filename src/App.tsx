@@ -4,10 +4,15 @@ import ImageCarousel, {
 } from "./components/ImageCarousel/ImageCarousel"
 import "./App.css"
 import Webcam from "react-webcam"
+import { motion } from "framer-motion"
+
+import backgroundchecked from "/backgroundchecked.svg"
+import timelinebar from "/timelinebar.svg"
 
 export default function App() {
 	const [images, setImages] = useState<ImageType[]>()
 	const [visible, setVisible] = useState(false)
+
 	useEffect(() => {
 		setImages(
 			Array.from(Array(10).keys()).map((id) => ({
@@ -22,11 +27,48 @@ export default function App() {
 
 	return (
 		<div className="App">
-			<div className="video-display">
+			{/* <div className="video-display">
 				<Webcam mirrored={true} />
 				<div className="ar-carousal">
 					{visible ? <ImageCarousel images={images} /> : ""}
 				</div>
+			</div> */}
+			{/* <div className="timeline-container">
+				<div className="timeline-background-container">
+					<img src={backgroundchecked} />
+				</div>
+
+				<motion.div
+					className="timeline-bar-container"
+					animate={{
+						x: 100,
+						y: 0,
+						scale: 1,
+						rotate: 0,
+					}}
+				>
+					<img src={timelinebar} />
+				</motion.div>
+			</div> */}
+			<div
+				className="timeline-container"
+				style={{ backgroundImage: backgroundchecked, overflow: "hidden" }}
+			>
+				<motion.div
+					animate={{
+						x: ["-1370%", "0%"],
+					}}
+					transition={{ duration: 10, ease: [0.65, 0.05, 0.36, 1] }}
+				>
+					<motion.img
+						src={timelinebar}
+						animate={{
+							width: ["1400%", "1000%"], // Increase width gradually and then return to initial size
+							height: ["1400%", "1000%"], // Increase height gradually and then return to initial size
+						}}
+						transition={{ duration: 11, ease: "easeIn" }}
+					/>
+				</motion.div>
 			</div>
 		</div>
 	)
