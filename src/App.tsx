@@ -52,21 +52,26 @@ export default function App() {
 			</div> */}
 			<div
 				className="timeline-container"
-				style={{ backgroundImage: backgroundchecked, overflow: "hidden" }}
+				style={{
+					backgroundImage: `url(${backgroundchecked})`,
+					overflow: "hidden",
+				}}
 			>
 				<motion.div
+					className="timeline-bar-container "
 					animate={{
-						x: ["-1370%", "0%"],
+						x: ["-1230%", "0%"],
+						top: ["28%", "42%"],
 					}}
 					transition={{ duration: 10, ease: [0.65, 0.05, 0.36, 1] }}
 				>
 					<motion.img
 						src={timelinebar}
 						animate={{
-							width: ["1400%", "1000%"], // Increase width gradually and then return to initial size
-							height: ["1400%", "1000%"], // Increase height gradually and then return to initial size
+							width: ["1300%", "500%"], // Increase width gradually and then return to initial size
+							height: ["1300%", "500%"], // Increase height gradually and then return to initial size
 						}}
-						transition={{ duration: 11, ease: "easeIn" }}
+						transition={{ duration: 9, ease: [0.65, 0.05, 0.36, 1] }}
 					/>
 				</motion.div>
 			</div>

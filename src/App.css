@@ -31,6 +31,7 @@
 .timeline-container {
 	width: 843px;
 	overflow: "hidden";
+	height: 100%;
 }
 
 .timeline-background-container {
@@ -43,6 +44,6 @@
 }
 
 .timeline-bar-container {
+	top: 38%;
 	position: relative;
-	top: -45rem;
 }
