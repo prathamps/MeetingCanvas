@@ -15,7 +15,9 @@
     "framer-motion": "^10.12.17",
     "p5": "^1.6.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
+    "react-player": "^2.12.0",
     "react-responsive-carousel": "^3.2.23",
     "react-webcam": "^7.1.1"
   },

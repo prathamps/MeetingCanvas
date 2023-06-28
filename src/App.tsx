@@ -7,9 +7,13 @@ import Webcam from "react-webcam"
 import { motion } from "framer-motion"
 
 import Timeline from "./components/Timeline/Timeline"
+import VideoCarousel, {
+	MediaType,
+} from "./components/VideoCarousel/VideoCarousel"
 
 export default function App() {
 	const [images, setImages] = useState<ImageType[]>()
+	const [media, setMedia] = useState<MediaType[]>([])
 	const [visible, setVisible] = useState(false)
 
 	useEffect(() => {
@@ -17,8 +21,20 @@ export default function App() {
 			Array.from(Array(10).keys()).map((id) => ({
 				id,
 				url: `https://picsum.photos/1000?random=${id}`,
+				type: "image",
 			}))
 		)
+		setTimeout(() => {
+			setVisible(true)
+		}, 10000)
+	}, [])
+
+	useEffect(() => {
+		setMedia([
+			{ id: 0, url: "/video/1.mp4", type: "video" },
+			{ id: 1, url: "/video/2.mp4", type: "video" },
+			{ id: 2, url: "/video/3.mp4", type: "video" },
+		])
 		setTimeout(() => {
 			setVisible(true)
 		}, 10000)
@@ -32,9 +48,10 @@ export default function App() {
 					{visible ? <ImageCarousel images={images} /> : ""}
 				</div> */}
 			</div>
-			<div className="timeline">
+			{/* <div className="timeline">
 				<Timeline />
-			</div>
+			</div> */}
+			<VideoCarousel media={media} />
 		</div>
 	)
 }
