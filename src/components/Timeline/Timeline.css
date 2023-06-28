@@ -1,0 +1,21 @@
+/* Timeline */
+
+.timeline-container {
+	width: 600px;
+	overflow: "hidden";
+	height: 100%;
+}
+
+.timeline-background-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	margin-top: 10rem;
+}
+
+.timeline-bar-container {
+	top: 38%;
+	position: relative;
+}
