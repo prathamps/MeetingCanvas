@@ -10,6 +10,7 @@ import Timeline from "./components/Timeline/Timeline"
 import VideoCarousel, {
 	MediaType,
 } from "./components/VideoCarousel/VideoCarousel"
+import NetworkDots from "./components/NetworkDots/NetworkDots"
 
 export default function App() {
 	const [images, setImages] = useState<ImageType[]>()
@@ -42,7 +43,7 @@ export default function App() {
 
 	return (
 		<div className="App">
-			<Webcam mirrored={true} width={1280} height={720} />
+			{/* <Webcam mirrored={true} width={1280} height={720} /> */}
 			<div className="video-display">
 				{/* <div className="ar-carousal">
 					{visible ? <ImageCarousel images={images} /> : ""}
@@ -51,7 +52,9 @@ export default function App() {
 			{/* <div className="timeline">
 				<Timeline />
 			</div> */}
-			<VideoCarousel media={media} />
+			{/* <VideoCarousel media={media} /> */}
+
+			<NetworkDots />
 		</div>
 	)
 }
