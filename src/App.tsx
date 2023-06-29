@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import ImageCarousel, {
 	ImageType,
 } from "./components/ImageCarousel/ImageCarousel"
-import "./App.css"
+// import "./App.css"
 import Webcam from "react-webcam"
 import { motion } from "framer-motion"
 
@@ -11,6 +11,7 @@ import VideoCarousel, {
 	MediaType,
 } from "./components/VideoCarousel/VideoCarousel"
 import NetworkDots from "./components/NetworkDots/NetworkDots"
+import Butterfly from "./components/Butterfly/Butterfly"
 
 export default function App() {
 	const [images, setImages] = useState<ImageType[]>()
@@ -44,17 +45,18 @@ export default function App() {
 	return (
 		<div className="App">
 			{/* <Webcam mirrored={true} width={1280} height={720} /> */}
-			<div className="video-display">
-				{/* <div className="ar-carousal">
+			{/* <div className="video-display">
+			<div className="ar-carousal">
 					{visible ? <ImageCarousel images={images} /> : ""}
-				</div> */}
-			</div>
+				</div> 
+			</div> */}
 			{/* <div className="timeline">
 				<Timeline />
 			</div> */}
 			{/* <VideoCarousel media={media} /> */}
 
-			<NetworkDots />
+			{/* <NetworkDots /> */}
+			<Butterfly />
 		</div>
 	)
 }

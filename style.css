@@ -1,5 +1,9 @@
 body {
 	background-color: #ccc8c5;
+	font-size: 12pt;
+	line-height: 10pt;
+
+	height: 100%;
 }
 
 #canvas {

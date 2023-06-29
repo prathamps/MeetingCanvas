@@ -2,7 +2,6 @@ import React from "react"
 import { motion, useAnimation } from "framer-motion"
 
 import background from "/background.svg"
-import timelinebar from "/timelinebar.svg"
 
 import "./NetworkDots.css"
 
@@ -61,7 +60,7 @@ const NetworkDots = () => {
 
 	return (
 		<motion.div
-			className="timeline-container"
+			className="network-container"
 			style={{
 				backgroundImage: `url(${background})`,
 				overflow: "hidden",
@@ -78,9 +77,7 @@ const NetworkDots = () => {
 					className="circle center-circle"
 					initial={{ scale: 1.2 }}
 					animate={controls}
-				>
-					{/* <motion.div className="center-text">Present</motion.div> */}
-				</motion.div>
+				></motion.div>
 				{circles}
 			</motion.div>
 		</motion.div>

@@ -1,18 +1,9 @@
 /* Timeline */
 
-.timeline-container {
-	width: 600px;
+.network-container {
+	width: 650px;
 	overflow: "hidden";
-	height: 100%;
-}
-
-.timeline-background-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
-	margin-top: 10rem;
+	height: 80%;
 }
 
 .network-circle-container {
