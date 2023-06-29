@@ -13,6 +13,8 @@ import VideoCarousel, {
 import NetworkDots from "./components/NetworkDots/NetworkDots"
 import NetworkGraph from "./components/NetworkGraph/NetworkGraph"
 import Butterfly from "./components/Butterfly/Butterfly"
+import Saahaya from "./components/Saahaya/Saahaya"
+import Toastmasters from "./components/Toastmasters/Toastmasters"
 
 export default function App() {
 	const [images, setImages] = useState<ImageType[]>()
@@ -60,7 +62,9 @@ export default function App() {
 
 			{/* <VideoCarousel media={media} /> */}
 
-			<NetworkGraph />
+			{/* <NetworkGraph /> */}
+			{/* <Saahaya /> */}
+			<Toastmasters />
 		</div>
 	)
 }
