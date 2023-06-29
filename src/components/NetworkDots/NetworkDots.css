@@ -1,9 +1,12 @@
 /* Timeline */
 
 .network-container {
+	position: absolute;
+	top: 0%;
+	right: 12%;
 	width: 650px;
 	overflow: "hidden";
-	height: 80%;
+	height: 720px;
 }
 
 .network-circle-container {

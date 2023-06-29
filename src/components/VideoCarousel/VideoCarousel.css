@@ -1,4 +1,7 @@
 .carousel-container {
+	position: absolute;
+	top: 10%;
+	right: -20%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

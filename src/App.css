@@ -5,14 +5,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	height: 100%;
 }
 
 .ar-carousal {
 	position: relative;
-	left: 40rem;
-	top: -45rem;
+	left: 34rem;
+	top: -31rem;
 	width: 40vw;
 	z-index: 102;
 }
@@ -33,6 +31,6 @@
 .timeline {
 	position: absolute;
 	top: -5%;
-	right: 11.5%;
+	right: 12.5%;
 	height: 100%;
 }
