@@ -1,3 +1,11 @@
+.ar-carousal {
+	position: absolute;
+	right: 30%;
+	top: 12%;
+	width: 40vw;
+	z-index: 102;
+}
+
 .carousel-container {
 	display: flex;
 	flex-direction: column;
@@ -12,7 +20,7 @@
 }
 .selected-image {
 	width: 380px;
-	height: 550px;
+	height: 360px;
 	margin-bottom: 8px;
 	background-position: center center;
 	background-repeat: no-repeat;

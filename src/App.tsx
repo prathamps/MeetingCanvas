@@ -15,6 +15,7 @@ import NetworkGraph from "./components/NetworkGraph/NetworkGraph"
 import Butterfly from "./components/Butterfly/Butterfly"
 import Saahaya from "./components/Saahaya/Saahaya"
 import Toastmasters from "./components/Toastmasters/Toastmasters"
+import Personalities from "./components/Personalities/Personalities"
 
 export default function App() {
 	const [images, setImages] = useState<ImageType[]>()
@@ -54,17 +55,15 @@ export default function App() {
 			{/* <div className="timeline">
 				<Timeline />
 			</div> */}
-			<div className="video-display">
-				{/* <div className="ar-carousal">
-					{visible ? <ImageCarousel images={images} /> : ""}
-				</div> */}
-			</div>
+
+			{visible ? <ImageCarousel images={images} /> : ""}
 
 			{/* <VideoCarousel media={media} /> */}
 
 			{/* <NetworkGraph /> */}
 			{/* <Saahaya /> */}
-			<Toastmasters />
+			{/* <Toastmasters /> */}
+			<Personalities />
 		</div>
 	)
 }

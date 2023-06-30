@@ -7,13 +7,6 @@
 	align-items: center;
 }
 
-.ar-carousal {
-	position: relative;
-	left: 34rem;
-	top: -31rem;
-	width: 40vw;
-	z-index: 102;
-}
 .header {
 	text-align: center;
 }

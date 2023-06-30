@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./ImageCarousel.css"
 import { getGestureDetails } from "../../api/carouselFunctions"
-
+import { motion } from "framer-motion"
 export type ImageType = { id: number; url: string }
 
 const ImageCarousel: React.FC<{ images?: ImageType[] }> = ({ images }) => {
@@ -82,29 +82,36 @@ const ImageCarousel: React.FC<{ images?: ImageType[] }> = ({ images }) => {
 	}
 
 	return (
-		<div className="carousel-container">
-			<div className="selected-image-container">
-				<div
-					className="selected-image"
-					style={{ backgroundImage: `url(${selectedImage?.url})` }}
-				/>
-			</div>
-			<div className="carousel">
-				<div className="carousel__images">
-					{images &&
-						images.map((image, idx) => (
-							<div
-								onClick={() => handleSelectedImageChange(idx)}
-								style={{ backgroundImage: `url(${image.url})` }}
-								key={image.id}
-								className={`carousel__image ${
-									selectedImageIndex === idx ? "carousel__image-selected" : ""
-								}`}
-								ref={(el) => (carouselItemsRef.current[idx] = el)}
-							/>
-						))}
+		<motion.div
+			animate={{ top: ["14%", "3%"], right: ["30%", "12%"] }}
+			transition={{ duration: 2, delay: 5 }}
+			className="ar-carousal"
+		>
+			<div className="carousel-container">
+				<div className="selected-image-container">
+					<motion.div
+						animate={{ height: ["360px", "550px"] }}
+						transition={{ duration: 2, delay: 5 }}
+						className="selected-image"
+						style={{ backgroundImage: `url(${selectedImage?.url})` }}
+					/>
 				</div>
-				{/* <button
+				<div className="carousel">
+					<div className="carousel__images">
+						{images &&
+							images.map((image, idx) => (
+								<div
+									onClick={() => handleSelectedImageChange(idx)}
+									style={{ backgroundImage: `url(${image.url})` }}
+									key={image.id}
+									className={`carousel__image ${
+										selectedImageIndex === idx ? "carousel__image-selected" : ""
+									}`}
+									ref={(el) => (carouselItemsRef.current[idx] = el)}
+								/>
+							))}
+					</div>
+					{/* <button
 					className="carousel__button carousel__button-left"
 					onClick={handleLeftClick}
 				>
@@ -116,19 +123,20 @@ const ImageCarousel: React.FC<{ images?: ImageType[] }> = ({ images }) => {
 				>
 					Next
 				</button> */}
+				</div>
+				<div className="photo_bar">
+					<svg
+						width="170"
+						height="13"
+						viewBox="0 0 170 13"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<rect width="170" height="7" rx="6.5" fill="#CCC8C5" />
+					</svg>
+				</div>
 			</div>
-			<div className="photo_bar">
-				<svg
-					width="170"
-					height="13"
-					viewBox="0 0 170 13"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<rect width="170" height="7" rx="6.5" fill="#CCC8C5" />
-				</svg>
-			</div>
-		</div>
+		</motion.div>
 	)
 }
 
