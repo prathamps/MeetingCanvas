@@ -5,7 +5,12 @@ import { motion } from "framer-motion"
 
 import "./VideoCarousel.css"
 
-export type MediaType = { id: number; url: string; type: string }
+export type MediaType = {
+	id: number
+	url: string
+	type: string
+	thumbnail: string
+}
 
 const VideoCarousel: React.FC<{ media?: MediaType[] }> = ({ media }) => {
 	const [selectedMediaIndex, setSelectedMediaIndex] = useState(0)
@@ -89,6 +94,14 @@ const VideoCarousel: React.FC<{ media?: MediaType[] }> = ({ media }) => {
 				{visible && selectedMedia && selectedMedia.type === "video" && (
 					<Video url={selectedMedia.url} />
 				)}
+				{visible && selectedMedia && selectedMedia.type === "image" && (
+					<motion.div
+						animate={{ height: ["360px", "550px"] }}
+						transition={{ duration: 2, delay: 5 }}
+						className="selected-image"
+						style={{ backgroundImage: `url(${selectedMedia?.url})` }}
+					/>
+				)}
 				{!visible && (
 					<div className="video-card-placeholder">
 						<div className="placeholder"></div>
@@ -98,20 +111,36 @@ const VideoCarousel: React.FC<{ media?: MediaType[] }> = ({ media }) => {
 			<motion.div className="carousel">
 				<div className="carousel__media">
 					{media &&
-						media.map((item, idx) => (
-							<div
-								onClick={() => handleSelectedMediaChange(idx)}
-								key={item.id}
-								className={`carousel__media-item ${
-									selectedMediaIndex === idx
-										? "carousel__media-item-selected"
-										: ""
-								}`}
-								ref={(el) => (carouselItemsRef.current[idx] = el)}
-							>
-								{item.url}
-							</div>
-						))}
+						media.map((item, idx) => {
+							if (item.type == "video")
+								return (
+									<div
+										onClick={() => handleSelectedMediaChange(idx)}
+										style={{ backgroundImage: `url(${item.thumbnail})` }}
+										key={item.id}
+										className={`carousel__image ${
+											selectedMediaIndex === idx
+												? "carousel__image-selected"
+												: ""
+										}`}
+										ref={(el) => (carouselItemsRef.current[idx] = el)}
+									/>
+								)
+							if (item.type == "image")
+								return (
+									<div
+										onClick={() => handleSelectedMediaChange(idx)}
+										style={{ backgroundImage: `url(${item.url})` }}
+										key={item.id}
+										className={`carousel__image ${
+											selectedMediaIndex === idx
+												? "carousel__image-selected"
+												: ""
+										}`}
+										ref={(el) => (carouselItemsRef.current[idx] = el)}
+									/>
+								)
+						})}
 				</div>
 			</motion.div>
 			<div className="photo_bar">
