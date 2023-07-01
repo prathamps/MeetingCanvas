@@ -34,19 +34,28 @@ export default function App() {
 	const [toastmasters, setToastmasters] = useState(false)
 
 	useEffect(() => {
-		setImages(
-			Array.from(Array(10).keys()).map((id) => ({
-				id,
-				url: `https://picsum.photos/1000?random=${id}`,
-				type: "image",
-			}))
-		)
+		setImages([
+			{ id: 0, url: "/image/1.png", type: "image" },
+			{ id: 1, url: "/image/2.png", type: "image" },
+			{ id: 2, url: "/image/2.png", type: "image" },
+			{ id: 3, url: "/image/4.png", type: "image" },
+			{ id: 4, url: "/image/5.png", type: "image" },
+			{ id: 5, url: "/image/6.png", type: "image" },
+			{ id: 6, url: "/image/7.png", type: "image" },
+			{ id: 7, url: "/image/8.png", type: "image" },
+			{ id: 8, url: "/image/9.png", type: "image" },
+
+			// { id: 4, url: "/image1/4.png", type: "image", thumbnail: "" },
+			// { id: 5, url: "/image1/5.png", type: "image", thumbnail: "" },
+			// { id: 2, url: "/video/3.mp4", type: "video" },
+		])
 		setInitialMedia([
-			{ id: 1, url: "/image1/1.jpg", type: "image", thumbnail: "" },
-			{ id: 2, url: "/image1/2.jpg", type: "image", thumbnail: "" },
-			{ id: 3, url: "/image1/3.jpg", type: "image", thumbnail: "" },
-			{ id: 4, url: "/image1/4.jpg", type: "image", thumbnail: "" },
-			{ id: 5, url: "/image1/5.jpg", type: "image", thumbnail: "" },
+			{ id: 3, url: "/image1/3.png", type: "image", thumbnail: "" },
+			{ id: 1, url: "/image1/1.png", type: "image", thumbnail: "" },
+			{ id: 2, url: "/image1/2.png", type: "image", thumbnail: "" },
+
+			// { id: 4, url: "/image1/4.png", type: "image", thumbnail: "" },
+			// { id: 5, url: "/image1/5.png", type: "image", thumbnail: "" },
 			// { id: 2, url: "/video/3.mp4", type: "video" },
 		])
 		setMedia([
@@ -74,7 +83,7 @@ export default function App() {
 		setTimeout(() => {
 			setTimeline(false)
 			setInitialVideoCarousel(true)
-		}, 130000)
+		}, 130000) //130000
 		setTimeout(() => {
 			setInitialVideoCarousel(false)
 		}, 145000)
@@ -85,7 +94,7 @@ export default function App() {
 		setTimeout(() => {
 			setPersonalities(false)
 			setImageCarousel(true)
-		}, 230000)
+		}, 2000) //230000
 		setTimeout(() => {
 			setImageCarousel(false)
 		}, 250000)
@@ -127,9 +136,38 @@ export default function App() {
 			) : (
 				""
 			)}
-			{initialVideoCarousel ? <VideoCarousel media={initialMedia} /> : ""}
+			{initialVideoCarousel ? (
+				<motion.div
+					animate={{ top: ["14%", "3%"], right: ["30%", "12%"] }}
+					transition={{ duration: 2, delay: 5 }}
+					className="ar-carousal"
+				>
+					<VideoCarousel media={initialMedia} />
+				</motion.div>
+			) : (
+				""
+			)}
+
+			{/* <motion.div
+				animate={{ top: ["14%", "3%"], right: ["30%", "12%"] }}
+				transition={{ duration: 2, delay: 5 }}
+				className="ar-carousal"
+			>
+				<ImageCarousel images={images} test={imageCarousel} />
+			</motion.div> */}
+
 			{personalities ? <Personalities /> : ""}
-			{imageCarousel ? <ImageCarousel images={images} /> : ""}
+			{imageCarousel ? (
+				<motion.div
+					animate={{ top: ["14%", "3%"], right: ["30%", "12%"] }}
+					transition={{ duration: 2, delay: 5 }}
+					className="ar-carousal"
+				>
+					<ImageCarousel images={images} test={imageCarousel} />
+				</motion.div>
+			) : (
+				""
+			)}
 
 			{videoCarousel ? <VideoCarousel media={media} /> : ""}
 

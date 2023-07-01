@@ -19,11 +19,12 @@ const ImageCarousel: React.FC<{ images?: ImageType[] }> = ({ images }) => {
 		}
 	}, [images])
 	useEffect(() => {
+		console.log(images)
 		gestureHandler()
-	}, [])
+	}, [images])
 	useEffect(() => {
 		console.log("gesture Handler 500ms")
-		const interval = setInterval(gestureHandler, 500)
+		const interval = setInterval(gestureHandler, 6000)
 
 		return () => {
 			clearInterval(interval)
@@ -31,13 +32,7 @@ const ImageCarousel: React.FC<{ images?: ImageType[] }> = ({ images }) => {
 	}, [selectedImageIndex])
 
 	const gestureHandler = () => {
-		const gestureDetails = getGestureDetails()
-
-		if (gestureDetails && gestureDetails[1] === true) {
-			if (gestureDetails[0] === "Right") {
-				handleRightClick()
-			}
-		}
+		handleRightClick()
 	}
 
 	const handleSelectedImageChange = (newIdx: number) => {
@@ -61,7 +56,7 @@ const ImageCarousel: React.FC<{ images?: ImageType[] }> = ({ images }) => {
 			let newIdx = selectedImageIndex + 1
 			console.log("rd", selectedImageIndex)
 			if (newIdx >= images.length) {
-				newIdx = 0
+				newIdx = newIdx - 1
 			}
 			console.log("ra", newIdx)
 			setSelectedImageIndex(newIdx)
@@ -82,36 +77,31 @@ const ImageCarousel: React.FC<{ images?: ImageType[] }> = ({ images }) => {
 	}
 
 	return (
-		<motion.div
-			animate={{ top: ["14%", "3%"], right: ["30%", "12%"] }}
-			transition={{ duration: 2, delay: 5 }}
-			className="ar-carousal"
-		>
-			<div className="carousel-container">
-				<div className="selected-image-container">
-					<motion.div
-						animate={{ height: ["360px", "550px"] }}
-						transition={{ duration: 2, delay: 5 }}
-						className="selected-image"
-						style={{ backgroundImage: `url(${selectedImage?.url})` }}
-					/>
+		<div className="carousel-container">
+			<div className="selected-image-container">
+				<motion.div
+					animate={{ height: ["360px", "550px"], width: ["550px", "380px"] }}
+					transition={{ duration: 2, delay: 5 }}
+					className="selected-image"
+					style={{ backgroundImage: `url(${selectedImage?.url})` }}
+				/>
+			</div>
+			<div className="carousel">
+				<div className="carousel__images">
+					{images &&
+						images.map((image, idx) => (
+							<div
+								onClick={() => handleSelectedImageChange(idx)}
+								style={{ backgroundImage: `url(${image.url})` }}
+								key={image.id}
+								className={`carousel__image ${
+									selectedImageIndex === idx ? "carousel__image-selected" : ""
+								}`}
+								ref={(el) => (carouselItemsRef.current[idx] = el)}
+							/>
+						))}
 				</div>
-				<div className="carousel">
-					<div className="carousel__images">
-						{images &&
-							images.map((image, idx) => (
-								<div
-									onClick={() => handleSelectedImageChange(idx)}
-									style={{ backgroundImage: `url(${image.url})` }}
-									key={image.id}
-									className={`carousel__image ${
-										selectedImageIndex === idx ? "carousel__image-selected" : ""
-									}`}
-									ref={(el) => (carouselItemsRef.current[idx] = el)}
-								/>
-							))}
-					</div>
-					{/* <button
+				{/* <button
 					className="carousel__button carousel__button-left"
 					onClick={handleLeftClick}
 				>
@@ -123,20 +113,19 @@ const ImageCarousel: React.FC<{ images?: ImageType[] }> = ({ images }) => {
 				>
 					Next
 				</button> */}
-				</div>
-				<div className="photo_bar">
-					<svg
-						width="170"
-						height="13"
-						viewBox="0 0 170 13"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<rect width="170" height="7" rx="6.5" fill="#CCC8C5" />
-					</svg>
-				</div>
 			</div>
-		</motion.div>
+			<div className="photo_bar">
+				<svg
+					width="170"
+					height="13"
+					viewBox="0 0 170 13"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<rect width="170" height="7" rx="6.5" fill="#CCC8C5" />
+				</svg>
+			</div>
+		</div>
 	)
 }
 

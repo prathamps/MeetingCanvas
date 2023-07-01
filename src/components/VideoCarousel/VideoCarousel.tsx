@@ -28,9 +28,7 @@ const VideoCarousel: React.FC<{ media?: MediaType[] }> = ({ media }) => {
 
 	useEffect(() => {
 		gestureHandler()
-
-		console.log(visible)
-	}, [])
+	}, [media])
 
 	useEffect(() => {
 		console.log("gesture Handler 500ms")
@@ -52,7 +50,7 @@ const VideoCarousel: React.FC<{ media?: MediaType[] }> = ({ media }) => {
 		return () => {
 			clearInterval(interval)
 		}
-	}, [selectedMediaIndex])
+	}, [selectedMediaIndex, selectedMedia])
 
 	const gestureHandler = () => {
 		handleRightClick()
@@ -96,13 +94,11 @@ const VideoCarousel: React.FC<{ media?: MediaType[] }> = ({ media }) => {
 				)}
 				{visible && selectedMedia && selectedMedia.type === "image" && (
 					<motion.div
-						animate={{ height: ["360px", "550px"] }}
-						transition={{ duration: 2, delay: 5 }}
 						className="selected-image"
 						style={{ backgroundImage: `url(${selectedMedia?.url})` }}
 					/>
 				)}
-				{!visible && (
+				{!visible && selectedMedia && selectedMedia.type === "video" && (
 					<div className="video-card-placeholder">
 						<div className="placeholder"></div>
 					</div>
